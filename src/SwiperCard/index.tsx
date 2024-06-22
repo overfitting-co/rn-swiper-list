@@ -128,7 +128,11 @@ const SwipeableCard = forwardRef<
         if (onSwipeActive) runOnJS(onSwipeActive)();
 
         translateX.value = event.translationX;
-        translateY.value = event.translationY;
+
+        if (!disableTopSwipe) {
+          translateY.value = event.translationY;
+        }
+        
         if (height / 3 < Math.abs(event.translationY)) {
           nextActiveIndex.value = interpolate(
             translateY.value,
@@ -177,7 +181,8 @@ const SwipeableCard = forwardRef<
             return;
           }
 
-          if (!signPositionY) {
+          
+          if (!signPositionY || disableTopSwipe) {
             if (sign === 1 && !disableRightSwipe) {
               runOnJS(swipeRight)();
               return;
@@ -186,7 +191,8 @@ const SwipeableCard = forwardRef<
               runOnJS(swipeLeft)();
               return;
             }
-          }
+        }
+
         }
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
