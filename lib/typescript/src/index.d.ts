@@ -1,0 +1,66 @@
+/// <reference types="react" />
+import type { StyleProp, ViewStyle } from 'react-native';
+import type { SharedValue } from 'react-native-reanimated';
+export { default as Swiper } from './Swiper';
+export type SwiperCardRefType = {
+    swipeRight: () => void;
+    swipeLeft: () => void;
+    swipeBack: () => void;
+    swipeTop: () => void;
+} | undefined;
+export type SwiperOptions<T> = {
+    data: T[];
+    renderCard: (item: T, index: number) => JSX.Element;
+    cardStyle?: StyleProp<ViewStyle>;
+    onSwipeLeft?: (cardIndex: number) => void;
+    onSwipeRight?: (cardIndex: number) => void;
+    onSwipeTop?: (cardIndex: number) => void;
+    onSwipedAll?: () => void;
+    onSwipeStart?: () => void;
+    onSwipeEnd?: () => void;
+    onSwipeActive?: () => void;
+    disableRightSwipe?: boolean;
+    disableLeftSwipe?: boolean;
+    disableTopSwipe?: boolean;
+    translateXRange?: number[];
+    translateYRange?: number[];
+    rotateInputRange?: number[];
+    rotateOutputRange?: number[];
+    inputOverlayLabelRightOpacityRange?: number[];
+    outputOverlayLabelRightOpacityRange?: number[];
+    inputOverlayLabelLeftOpacityRange?: number[];
+    outputOverlayLabelLeftOpacityRange?: number[];
+    inputOverlayLabelTopOpacityRange?: number[];
+    outputOverlayLabelTopOpacityRange?: number[];
+    OverlayLabelRight?: () => JSX.Element;
+    OverlayLabelLeft?: () => JSX.Element;
+    OverlayLabelTop?: () => JSX.Element;
+};
+export type SwiperCardOptions = {
+    index: number;
+    activeIndex: SharedValue<number>;
+    onSwipeRight?: (index: number) => void;
+    onSwipeLeft?: (index: number) => void;
+    onSwipeTop?: (index: number) => void;
+    onSwipeStart?: () => void;
+    onSwipeActive?: () => void;
+    onSwipeEnd?: () => void;
+    cardStyle?: StyleProp<ViewStyle>;
+    disableRightSwipe?: boolean;
+    disableLeftSwipe?: boolean;
+    disableTopSwipe?: boolean;
+    translateXRange?: number[];
+    rotateOutputRange?: number[];
+    rotateInputRange?: number[];
+    translateYRange?: number[];
+    inputOverlayLabelRightOpacityRange?: number[];
+    outputOverlayLabelRightOpacityRange?: number[];
+    inputOverlayLabelLeftOpacityRange?: number[];
+    outputOverlayLabelLeftOpacityRange?: number[];
+    inputOverlayLabelTopOpacityRange?: number[];
+    outputOverlayLabelTopOpacityRange?: number[];
+    OverlayLabelRight?: () => JSX.Element;
+    OverlayLabelLeft?: () => JSX.Element;
+    OverlayLabelTop?: () => JSX.Element;
+};
+//# sourceMappingURL=index.d.ts.map
